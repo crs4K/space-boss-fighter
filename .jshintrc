@@ -1,0 +1,8 @@
+{
+	"curly": true,
+	"eqeqeq": true,
+	"maxdepth": 2,
+	"maxparams": 3,
+	"maxstatements": 20,
+	"unused": true
+}
