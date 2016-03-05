@@ -8,7 +8,7 @@ var Background = function(game) {
 	}
 
 	function update() {
-		_view.tilePosition.x += velocity;
+		_view.tilePosition.x += _velocity;
 	}
 
 	return {
