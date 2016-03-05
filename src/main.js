@@ -1,15 +1,16 @@
-var game = new Phaser.Game(800, 600, Phaser.CANVAS, '', {preload: preload, create: create, update: update});
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, '',
+		{preload: preload, create: create, update: update});
 
-var bg;
+var bg = new Background(game);
 
 function preload() {
 	game.load.image("bg", "assets/img/bg.gif");
 }
 
 function create() {
-	bg = game.add.tileSprite(0, 0, 800, 600, "bg");
+	bg.create();
 }
 
 function update() {
-	bg.tilePosition.x -= 0.5;
+	bg.update();
 }
