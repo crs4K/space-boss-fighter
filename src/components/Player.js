@@ -23,10 +23,10 @@ define(function(){
 	};
 
 	Player.prototype.update = function() {
-		addMovement();
+		this._addMovement();
 	};
 
-	function addMovement() {
+	Player.prototype._addMovement = function() {
 		if(this._keys.up.isDown) {
 			this._view.body.velocity.y = -this._view.speed;
 		} else if(this._keys.down.isDown) {
