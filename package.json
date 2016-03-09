@@ -13,6 +13,7 @@
     "jshint": "^2.9.1",
     "karma": "^0.13.21",
     "karma-jasmine": "^0.3.7",
-    "phaser": "^2.4.6"
+    "phaser": "^2.4.6",
+    "requirejs": "^2.1.22"
   }
 }
