@@ -1,14 +1,15 @@
 require(["src/pathConfig"], function() {
-	require(["Phaser", "Background", "Player"], function(Phaser, Background, Player) {
-		var game = new Phaser.Game(800, 600, Phaser.CANVAS, '',
+	require(["Phaser", "Background", "Player", "BackgroundConstants", "PlayerConstants", "GameConstants"],
+			function(Phaser, Background, Player, BackgroundConstants, PlayerConstants, GameConstants) {
+		var game = new Phaser.Game(GameConstants.WIDTH, GameConstants.HEIGHT, Phaser.CANVAS, '',
 				{preload: preload, create: create, update: update});
 
 		var bg = new Background(game);
 		var player = new Player(game);
 
 		function preload() {
-			game.load.image("bg", "assets/img/bg.gif");
-			game.load.image("player", "assets/img/playerShip.png");
+			game.load.image(BackgroundConstants.ID, BackgroundConstants.PATH);
+			game.load.image(PlayerConstants.ID, PlayerConstants.PATH);
 		}
 
 		function create() {
