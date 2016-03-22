@@ -8,6 +8,10 @@
   },
   "author": "Oleh Shalyhin",
   "homepage": "https://github.com/crs4K/space-boss-fighter#readme",
+  "dependencies": {
+    "phaser": "^2.4.6",
+    "requirejs": "^2.1.22"
+  },
   "devDependencies": {
     "jasmine-core": "^2.4.1",
     "jshint": "^2.9.1",
@@ -15,8 +19,6 @@
     "karma-chrome-launcher": "^0.2.2",
     "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.7",
-    "karma-requirejs": "^0.2.5",
-    "phaser": "^2.4.6",
-    "requirejs": "^2.1.22"
+    "karma-requirejs": "^0.2.5"
   }
 }
