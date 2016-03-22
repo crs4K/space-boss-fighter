@@ -3,7 +3,7 @@ require.config({
     paths: {
         Phaser: "../../node_modules/phaser/dist/phaser.min",
 
-        GameConstants: "../GameConstants",
+        GameConstants: "../constants/GameConstants",
 
         Background: "background/Background",
         BackgroundConstants: "background/BackgroundConstants",

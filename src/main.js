@@ -1,6 +1,18 @@
-require(["src/pathConfig"], function() {
-	require(["Phaser", "Background", "Player", "BackgroundConstants", "PlayerConstants", "GameConstants"],
-			function(Phaser, Background, Player, BackgroundConstants, PlayerConstants, GameConstants) {
+require(["src/configs/config"], function() {
+	require(["Phaser",
+			 "Background",
+			 "Player",
+			 "BackgroundConstants",
+			 "PlayerConstants",
+			 "GameConstants",
+			 "BulletConstants"],
+			function(Phaser, 
+					 Background,
+					 Player,
+					 BackgroundConstants,
+					 PlayerConstants,
+					 GameConstants,
+					 BulletConstants) {
 		var game = new Phaser.Game(GameConstants.WIDTH, GameConstants.HEIGHT, Phaser.CANVAS, '',
 				{preload: preload, create: create, update: update});
 
@@ -10,6 +22,7 @@ require(["src/pathConfig"], function() {
 		function preload() {
 			game.load.image(BackgroundConstants.ID, BackgroundConstants.PATH);
 			game.load.image(PlayerConstants.ID, PlayerConstants.PATH);
+			game.load.image(BulletConstants.ID, BulletConstants.PATH);
 		}
 
 		function create() {
