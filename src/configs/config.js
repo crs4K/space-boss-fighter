@@ -9,6 +9,9 @@ require.config({
         BackgroundConstants: "background/BackgroundConstants",
 
         Player: "player/Player",
-        PlayerConstants: "player/PlayerConstants"
+        PlayerConstants: "player/PlayerConstants",
+
+        BulletPool: "bullet/BulletPool",
+        BulletConstants: "bullet/BulletConstants"
     }
 });
