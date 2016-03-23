@@ -1,14 +1,13 @@
 define(["PlayerConstants"], function(PlayerConstants){
-	function Player(game) {
-		this._game = game;
+	function Player() {
 		this._view = null;
 		this._keys = null;
 	}
 
-	Player.prototype.create = function() {
-		this._view = this._game.add.sprite(PlayerConstants.X, PlayerConstants.Y, PlayerConstants.ID);
+	Player.prototype.create = function(game) {
+		this._view = game.add.sprite(PlayerConstants.X, PlayerConstants.Y, PlayerConstants.ID);
 		
-		this._game.physics.enable(this._view, Phaser.Physics.ARCADE);
+		game.physics.enable(this._view, Phaser.Physics.ARCADE);
 		this._view.body.collideWorldBounds = true;
 		this._view.inputEnabled = true;
 		
@@ -16,7 +15,7 @@ define(["PlayerConstants"], function(PlayerConstants){
 		this._view.health = PlayerConstants.MAX_HEALTH;
 		this._view.maxHealth = PlayerConstants.MAX_HEALTH;
 
-		this._keys = this._game.input.keyboard.createCursorKeys();
+		this._keys = game.input.keyboard.createCursorKeys();
 	};
 
 	Player.prototype.update = function() {

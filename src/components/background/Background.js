@@ -1,11 +1,10 @@
 define(["BackgroundConstants", "GameConstants"], function(BackgroundConstants, GameConstants){
-	function Background(game) {
-		this._game = game;
+	function Background() {
 		this._view = null;
 	}
 
-	Background.prototype.create = function() {
-		this._view = this._game.add.tileSprite(BackgroundConstants.X, BackgroundConstants.Y, 
+	Background.prototype.create = function(game) {
+		this._view = game.add.tileSprite(BackgroundConstants.X, BackgroundConstants.Y, 
 				GameConstants.WIDTH, GameConstants.HEIGHT, BackgroundConstants.ID);
 	};
 
