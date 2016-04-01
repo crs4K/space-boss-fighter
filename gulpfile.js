@@ -1,25 +1,18 @@
 var gulp = require("gulp"),
-		amdOptimize = require("amd-optimize"),
 		concat = require("gulp-concat"),
 		uglify = require("gulp-uglify"),
-		jshint = require("gulp-jshint");
+		jshint = require("gulp-jshint"),
+		htmlReplace = require("gulp-html-replace"),
+		requirejsOptimize = require("gulp-requirejs-optimize");
 
 gulp.task("default", ["build"]);
 
-gulp.task("build", ["js", "css", "img", "lib", "html"]);
+gulp.task("build", ["jshint", "css", "img", "lib", "html", "js"]);
 
-gulp.task("js", function() {
-	gulp.src(["src/main.js", "src/components/**/*.js"], { base: "src" })
+gulp.task("jshint", function() {
+	gulp.src("src/**/*.js")
 			.pipe(jshint(".jshintrc"))
-			.pipe(jshint.reporter("default"))
-			.pipe(amdOptimize("main",
-					{
-						configFile: "configs/config.js",
-						baseUrl: "components"
-					}))
-			.pipe(concat("main.js"))
-			.pipe(uglify())
-			.pipe(gulp.dest("build/src"));
+			.pipe(jshint.reporter("default"));
 });
 
 gulp.task("css", function() {
@@ -29,7 +22,7 @@ gulp.task("css", function() {
 
 gulp.task("img", function() {
 	gulp.src("assets/img/**")
-			.pipe(gulp.dest("build/assets"));
+			.pipe(gulp.dest("build/assets/img"));
 });
 
 gulp.task("lib", function() {
@@ -41,5 +34,24 @@ gulp.task("lib", function() {
 
 gulp.task("html", function() {
 	gulp.src("index.html")
+			.pipe(htmlReplace({
+				"requirejs": "lib/require.js"
+			}))
 			.pipe(gulp.dest("build"));
+});
+
+gulp.task("js", function() {
+	gulp.src("src/main.js")
+			.pipe(requirejsOptimize({
+					paths: {
+						Phaser: "../node_modules/phaser/dist/phaser.min",
+						constants: "constants",
+						background: "components/background",
+						player: "components/player",
+						bullet: "components/bullet"
+					}
+				}))
+			.pipe(concat("main.js"))
+			.pipe(uglify())
+			.pipe(gulp.dest("build/src"));
 });

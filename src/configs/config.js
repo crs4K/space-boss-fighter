@@ -1,17 +1,10 @@
 require.config({
-    baseUrl: "src/components",
-    paths: {
-        Phaser: "../../node_modules/phaser/dist/phaser.min",
-
-        GameConstants: "../constants/GameConstants",
-
-        Background: "background/Background",
-        BackgroundConstants: "background/BackgroundConstants",
-
-        Player: "player/Player",
-        PlayerConstants: "player/PlayerConstants",
-
-        BulletPool: "bullet/BulletPool",
-        BulletConstants: "bullet/BulletConstants"
-    }
+  baseUrl: "src",
+  paths: {
+    Phaser: "../node_modules/phaser/dist/phaser.min",
+    constants: "constants",
+    background: "components/background",
+    player: "components/player",
+    bullet: "components/bullet"
+  }
 });

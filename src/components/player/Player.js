@@ -1,4 +1,4 @@
-define(["PlayerConstants"], function(PlayerConstants){
+define(["player/PlayerConstants"], function(PlayerConstants){
 	function Player() {
 		this._view = null;
 		this._keys = null;

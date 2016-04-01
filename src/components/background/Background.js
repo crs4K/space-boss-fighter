@@ -1,4 +1,4 @@
-define(["BackgroundConstants", "GameConstants"], function(BackgroundConstants, GameConstants){
+define(["background/BackgroundConstants", "constants/GameConstants"], function(BackgroundConstants, GameConstants){
 	function Background() {
 		this._view = null;
 	}
