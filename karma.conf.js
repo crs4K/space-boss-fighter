@@ -15,8 +15,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      {pattern: 'node_modules/phaser/dist/phaser.min.js', watched: false, included: false},
       {pattern: 'src/**/*.js', included: false},
-      {pattern: 'test/**/*.spec.js', included: false},
+      {pattern: 'test/mock/**/*.js', included: false},
+      {pattern: 'test/spec/**/*.spec.js', included: false},
       
       'test/test-main.js'
     ],
@@ -24,7 +26,7 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-      'src/pathConfig.js',
+      'src/configs/config.js',
       'src/main.js'
     ],
 

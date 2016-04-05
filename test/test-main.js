@@ -10,7 +10,19 @@ Object.keys(window.__karma__.files).forEach(function(file) {
 
 require.config({
   // Karma serves files under /base, which is the basePath from your config file
-  baseUrl: '/base/src/components',
+  baseUrl: '/base/src',
+
+  paths: {
+    Phaser: "../node_modules/phaser/dist/phaser.min",
+    constants: "constants",
+    background: "components/background",
+    player: "components/player",
+    bullet: "components/bullet",
+
+    //mocked components
+    mock: "../test/mock",
+    base: "../test/mock/base"
+  },
 
   // dynamically load all test files
   deps: tests,
