@@ -13,7 +13,7 @@ define(["player/PlayerConstants"], function(PlayerConstants){
 	};
 
 	Player.prototype.update = function() {
-		this._addMovement();
+		this._move();
 	};
 
 	Player.prototype._initView = function() {
@@ -24,7 +24,7 @@ define(["player/PlayerConstants"], function(PlayerConstants){
 		this._view.maxHealth = PlayerConstants.MAX_HEALTH;
 	}
 
-	Player.prototype._addMovement = function() {
+	Player.prototype._move = function() {
 		this._view.body.velocity.x = 0;
 		this._view.body.velocity.y = 0;
 
