@@ -43,13 +43,7 @@ gulp.task("html", function() {
 gulp.task("js", function() {
 	gulp.src("src/main.js")
 			.pipe(requirejsOptimize({
-					paths: {
-						Phaser: "../node_modules/phaser/dist/phaser.min",
-						constants: "constants",
-						background: "components/background",
-						player: "components/player",
-						bullet: "components/bullet"
-					}
+					mainConfigFile: "src/configs/config.js"
 				}))
 			.pipe(concat("main.js"))
 			.pipe(uglify())
