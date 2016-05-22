@@ -1,13 +1,22 @@
-define(["player/PlayerConstants", "bullet/BulletConstants"], function(PlayerConstants, BulletConstants){
+define(["player/PlayerConstants",
+			  "bullet/BulletConstants",
+			  "groups/BulletGroup"],
+				function(PlayerConstants,
+								 BulletConstants,
+								 BulletGroup){
+					
 	function Player() {
 		this._view = null;
 		this._keys = null;
-		this._bulletPool = null;
+		this._bulletGroup = null;
 	}
 
 	Player.prototype.create = function(game) {
 		this._view = game.add.sprite(PlayerConstants.X, PlayerConstants.Y, PlayerConstants.ID);
-		this._initBulletPool(game);
+
+		this._bulletGroup = new BulletGroup(game);
+		this._bulletGroup.initGroup();
+
 		this._createKeys(game);
 		
 		game.physics.enable(this._view, Phaser.Physics.ARCADE);
@@ -33,19 +42,6 @@ define(["player/PlayerConstants", "bullet/BulletConstants"], function(PlayerCons
 		this._view.anchor.setTo(0.5, 0.5);
 	};
 
-	Player.prototype._initBulletPool = function(game) {
-		this._bulletPool = game.add.group();
-
-		this._bulletPool.enableBody = true;
-		this._bulletPool.physicsBodyType = Phaser.Physics.ARCADE;
-
-		this._bulletPool.createMultiple(20, BulletConstants.ID);
-		this._bulletPool.setAll("anchor.x", 0.5);
-		this._bulletPool.setAll("anchor.y", 0.5);
-		this._bulletPool.setAll("outOfBoundsKill", true);
-		this._bulletPool.setAll("checkWorldBounds", true);
-	};
-
 	Player.prototype._move = function() {
 		this._view.body.velocity.x = 0;
 		this._view.body.velocity.y = 0;
@@ -64,9 +60,7 @@ define(["player/PlayerConstants", "bullet/BulletConstants"], function(PlayerCons
 	};
 
 	Player.prototype._shoot = function() {
-		var bullet = this._bulletPool.getFirstExists(false);
-		bullet.reset(this._view.x + this._view.width, this._view.y);
-		bullet.body.velocity.x = BulletConstants.SPEED;
+		this._bulletGroup.resetBullet(this._view.x + this._view.width, this._view.y);
 	};
 
 	return Player;
