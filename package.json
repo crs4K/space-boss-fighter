@@ -9,22 +9,22 @@
   "author": "Oleh Shalyhin",
   "homepage": "https://github.com/crs4K/space-boss-fighter#readme",
   "dependencies": {
-    "phaser": "^2.4.6",
-    "requirejs": "^2.1.22"
+    "phaser": "^2.4.8",
+    "requirejs": "^2.2.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-html-replace": "^1.5.5",
-    "gulp-jshint": "^2.0.0",
-    "gulp-requirejs-optimize": "^0.3.2",
+    "gulp-jshint": "^2.0.1",
+    "gulp-requirejs-optimize": "^1.0.0",
     "gulp-uglify": "^1.5.3",
     "jasmine-core": "^2.4.1",
-    "jshint": "^2.9.1",
-    "karma": "^0.13.21",
-    "karma-chrome-launcher": "^0.2.2",
-    "karma-firefox-launcher": "^0.1.7",
-    "karma-jasmine": "^0.3.7",
-    "karma-requirejs": "^0.2.5"
+    "jshint": "^2.9.2",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-requirejs": "^1.0.0"
   }
 }

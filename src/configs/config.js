@@ -1,7 +1,7 @@
 require.config({
   baseUrl: "src",
   paths: {
-    Phaser: "../node_modules/phaser/dist/phaser.min",
+    Phaser: "../node_modules/phaser/build/phaser.min",
     constants: "constants",
     groups: "groups",
     background: "components/background",
