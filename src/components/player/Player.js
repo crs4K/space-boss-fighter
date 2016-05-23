@@ -1,6 +1,6 @@
 define(["player/PlayerConstants",
-			  "bullet/BulletConstants",
-			  "groups/BulletGroup"],
+			  "bulletGroup/BulletConstants",
+			  "bulletGroup/BulletGroup"],
 				function(PlayerConstants,
 								 BulletConstants,
 								 BulletGroup){

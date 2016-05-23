@@ -1,4 +1,4 @@
-define(["Phaser", "bullet/BulletConstants"], function(Phaser, BulletConstants) {
+define(["Phaser", "bulletGroup/BulletConstants"], function(Phaser, BulletConstants) {
 	function BulletGroup(game) {
 		Phaser.Group.call(this, game);
 	}
