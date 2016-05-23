@@ -11,6 +11,9 @@ define(function() {
 				y: 0
 			}
 		};
+		this.anchor = {
+			setTo: function() {}
+		};
 	}
 
 	return Sprite;

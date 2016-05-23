@@ -4,7 +4,7 @@ define(["mock/BackgroundMock", "background/BackgroundConstants"], function(Backg
 
 		it("is moving on update", function() {
 			bg.update();
-			expect(bg._view.tilePosition.x).toEqual(BackgroundConstants.X + BackgroundConstants.VELOCITY);
+			expect(bg.view.tilePosition.x).toEqual(BackgroundConstants.X + BackgroundConstants.VELOCITY);
 		});
 	});
 });

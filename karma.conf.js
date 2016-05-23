@@ -15,7 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      {pattern: 'node_modules/phaser/dist/phaser.min.js', watched: false, included: false},
+      {pattern: 'node_modules/phaser/build/phaser.min.js', watched: false, included: false},
       {pattern: 'src/**/*.js', included: false},
       {pattern: 'test/mock/**/*.js', included: false},
       {pattern: 'test/spec/**/*.spec.js', included: false},
