@@ -15,7 +15,7 @@ define(["player/PlayerConstants",
 		this._view = game.add.sprite(PlayerConstants.X, PlayerConstants.Y, PlayerConstants.ID);
 
 		this._bulletGroup = new BulletGroup(game);
-		this._bulletGroup.initGroup();
+		this._bulletGroup.initGroup(BulletConstants.BULLETS_QUANTITY);
 
 		this._createKeys(game);
 		

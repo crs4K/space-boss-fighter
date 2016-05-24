@@ -1,7 +1,8 @@
 define(function() {
 	return {
-		ID: "bullet",
-		PATH: "assets/img/bullet.png",
-		SPEED: 500
+		ID: "bulletBlue",
+		PATH: "assets/img/bulletBlue.png",
+		SPEED: 500,
+		BULLETS_QUANTITY: 20
 	};
 });

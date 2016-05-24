@@ -6,10 +6,10 @@ define(["Phaser", "bulletGroup/BulletConstants"], function(Phaser, BulletConstan
 	BulletGroup.prototype = Object.create(Phaser.Group.prototype);
 	BulletGroup.prototype.constructor = BulletGroup;
 
-	BulletGroup.prototype.initGroup = function() {
+	BulletGroup.prototype.initGroup = function(quantity) {
 		this.enableBody = true;
 		this.physicsBodyType = Phaser.Physics.ARCADE;
-		this.createMultiple(20, BulletConstants.ID);
+		this.createMultiple(quantity, BulletConstants.ID);
 		this.setAll("anchor.x", 0.5);
 		this.setAll("anchor.y", 0.5);
 		this.setAll("outOfBoundsKill", true);
@@ -18,8 +18,10 @@ define(["Phaser", "bulletGroup/BulletConstants"], function(Phaser, BulletConstan
 	
 	BulletGroup.prototype.resetBullet = function(x, y) {
 		var bullet = this.getFirstExists(false);
-		bullet.reset(x, y);
-		bullet.body.velocity.x = BulletConstants.SPEED;
+		if(bullet) {
+			bullet.reset(x, y);
+			bullet.body.velocity.x = BulletConstants.SPEED;
+		}
 	};
 
 	return BulletGroup;

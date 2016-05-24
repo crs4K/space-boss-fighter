@@ -5,6 +5,7 @@ require.config({
     constants: "constants",
     controllers: "controllers",
 
+    enemyGroup: "groups/enemy",
     bulletGroup: "groups/bullet",
     
     background: "components/background",
