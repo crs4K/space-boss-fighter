@@ -1,3 +1,3 @@
-require(["controllers/StateController"], function(StateController) {
+require(["controller/StateController"], function(StateController) {
 	StateController.execute();
 });

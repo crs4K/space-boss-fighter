@@ -1,4 +1,4 @@
-define(["mock/BackgroundMock", "background/BackgroundConstants"], function(BackgroundMock, BackgroundConstants) {
+define(["mock/BackgroundMock", "constant/BackgroundConstants"], function(BackgroundMock, BackgroundConstants) {
 	describe("Background", function() {
 		var bg = new BackgroundMock();
 

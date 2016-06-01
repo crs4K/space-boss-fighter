@@ -1,4 +1,4 @@
-define(["mock/PlayerMock", "player/PlayerConstants"], function(PlayerMock, PlayerConstants) {
+define(["mock/PlayerMock", "constant/PlayerConstants"], function(PlayerMock, PlayerConstants) {
 	describe("Player", function() {
 		var player = new PlayerMock();
 

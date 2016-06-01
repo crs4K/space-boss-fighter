@@ -43,7 +43,7 @@ gulp.task("html", function() {
 gulp.task("js", function() {
 	gulp.src("src/main.js")
 			.pipe(requirejsOptimize({
-					mainConfigFile: "src/configs/config.js"
+					mainConfigFile: "src/config/config.js"
 				}))
 			.pipe(concat("main.js"))
 			.pipe(uglify())

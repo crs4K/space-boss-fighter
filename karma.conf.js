@@ -26,7 +26,7 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-      'src/configs/config.js',
+      'src/config/config.js',
       'src/main.js'
     ],
 

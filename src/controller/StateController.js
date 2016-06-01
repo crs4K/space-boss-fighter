@@ -1,6 +1,6 @@
 define(["Phaser",
-		"constants/GameConstants",
-		"constants/StateConstants",
+		"constant/GameConstants",
+		"constant/StateConstants",
 		"state/BootState",
 		"state/PreloaderState",
 		"state/MenuState",

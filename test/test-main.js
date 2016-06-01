@@ -14,13 +14,10 @@ require.config({
 
   paths: {
     Phaser: "../node_modules/phaser/build/phaser.min",
-    constants: "constants",
-
-    bulletGroup: "groups/bullet",
-    
-    background: "components/background",
-    player: "components/player",
-    bullet: "components/bullet",
+    component: "component",
+    constant: "constant",
+    controller: "controller",
+    state: "state",
 
     //mocked components
     mock: "../test/mock",

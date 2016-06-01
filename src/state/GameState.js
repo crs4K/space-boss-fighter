@@ -1,18 +1,18 @@
 define(["Phaser",
-	  "background/Background",
-	  "background/BackgroundConstants",
-	  "player/Player",
-	  "player/PlayerConstants",
-	  "enemyGroup/EnemyGroup",
-	  "enemyGroup/EnemyConstants",
-	  "bulletGroup/BulletConstants",
-	  "constants/StateConstants"],
+	  "component/Background",
+	  "component/Player",
+	  "component/EnemyGroup",
+	  "constant/BackgroundConstants",
+	  "constant/PlayerConstants",
+	  "constant/EnemyConstants",
+	  "constant/BulletConstants",
+	  "constant/StateConstants"],
 		function(Phaser, 
 				Background,
-				BackgroundConstants,
 				Player,
-				PlayerConstants,
 				EnemyGroup,
+				BackgroundConstants,
+				PlayerConstants,
 				EnemyConstants,
 				BulletConstants,
 				StateConstants) {
@@ -23,24 +23,17 @@ define(["Phaser",
 		this.enemyGroup = null;
 	}
 
-	GameState.prototype.preload = function() {
-		this.game.load.image(BackgroundConstants.ID, BackgroundConstants.PATH);
-		this.game.load.image(PlayerConstants.ID, PlayerConstants.PATH);
-		this.game.load.image(EnemyConstants.ID, EnemyConstants.PATH);
-		this.game.load.image(BulletConstants.ID, BulletConstants.PATH);
-	};
-
 	GameState.prototype.create = function() {
-		this.bg.create(this.game);
-		this.player.create(this.game);
-		this.enemyGroup = new EnemyGroup(this.game);
+		this.bg.create(this);
+		this.player.create(this);
+		this.enemyGroup = new EnemyGroup(this);
 		this.enemyGroup.initGroup(EnemyConstants.ENEMIES_QUANTITY);
 	};
 
 	GameState.prototype.update = function() {
 		this.bg.update();
 		this.player.update();
-		this.enemyGroup.resetEnemy(this.game.world.width + this.game.world.randomX, this.game.world.randomY);
+		this.enemyGroup.resetEnemy(this.world.width + this.world.randomX, this.world.randomY);
 	};
 
 	return GameState;

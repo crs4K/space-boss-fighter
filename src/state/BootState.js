@@ -1,4 +1,4 @@
-define(["constants/StateConstants"], function(StateConstants) {
+define(["constant/StateConstants"], function(StateConstants) {
 	function BootState() {
 	}
 

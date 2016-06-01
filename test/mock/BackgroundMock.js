@@ -1,4 +1,4 @@
-define(["background/Background", "base/TileSprite"], function(Background, TileSprite) {
+define(["component/Background", "base/TileSprite"], function(Background, TileSprite) {
 	function BackgroundMock() {
 		Background.call(this);
 		this._view = new TileSprite();
