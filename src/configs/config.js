@@ -4,6 +4,7 @@ require.config({
     Phaser: "../node_modules/phaser/build/phaser.min",
     constants: "constants",
     controllers: "controllers",
+    state: "state",
 
     enemyGroup: "groups/enemy",
     bulletGroup: "groups/bullet",

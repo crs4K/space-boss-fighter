@@ -1,3 +1,3 @@
-require(["controllers/GameController"], function(GameController) {
-	GameController.execute();
+require(["controllers/StateController"], function(StateController) {
+	StateController.execute();
 });
