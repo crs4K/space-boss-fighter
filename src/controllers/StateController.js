@@ -1,5 +1,6 @@
 define(["Phaser",
 		"constants/GameConstants",
+		"constants/StateConstants",
 		"state/BootState",
 		"state/PreloaderState",
 		"state/MenuState",
@@ -8,6 +9,7 @@ define(["Phaser",
 		"state/GameOverState"],
 		function(Phaser,
 				GameConstants,
+				StateConstants,
 				BootState,
 				PreloaderState,
 				MenuState,
@@ -23,19 +25,19 @@ define(["Phaser",
 		initStates();
 		game.changeStateSignal = new Phaser.Signal();
 		game.changeStateSignal.add(onChangeState, this);
-		game.state.start("Boot");
+		game.state.start(StateConstants.BOOT);
 
 		function onChangeState(state) {
 			game.state.start(state);
 		}
 
 		function initStates() {
-			game.state.add("Boot", BootState);
-			game.state.add("Preloader", PreloaderState);
-			game.state.add("Menu", MenuState);
-			game.state.add("Options", OptionsState);
-			game.state.add("Game", GameState);
-			game.state.add("GameOver", GameOverState);
+			game.state.add(StateConstants.BOOT, BootState);
+			game.state.add(StateConstants.PRELOADER, PreloaderState);
+			game.state.add(StateConstants.MENU, MenuState);
+			game.state.add(StateConstants.OPTIONS, OptionsState);
+			game.state.add(StateConstants.GAME, GameState);
+			game.state.add(StateConstants.GAME_OVER, GameOverState);
 		}
 	};
 

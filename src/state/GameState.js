@@ -6,7 +6,7 @@ define(["Phaser",
 	  "enemyGroup/EnemyGroup",
 	  "enemyGroup/EnemyConstants",
 	  "bulletGroup/BulletConstants",
-	  "constants/GameConstants"],
+	  "constants/StateConstants"],
 		function(Phaser, 
 				Background,
 				BackgroundConstants,
@@ -15,7 +15,7 @@ define(["Phaser",
 				EnemyGroup,
 				EnemyConstants,
 				BulletConstants,
-				GameConstants) {
+				StateConstants) {
 
 	function GameState() {
 		this.bg = new Background();
@@ -31,7 +31,6 @@ define(["Phaser",
 	};
 
 	GameState.prototype.create = function() {
-		console.log("Game");
 		this.bg.create(this.game);
 		this.player.create(this.game);
 		this.enemyGroup = new EnemyGroup(this.game);

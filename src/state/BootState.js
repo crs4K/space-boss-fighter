@@ -1,10 +1,9 @@
-define(function() {
+define(["constants/StateConstants"], function(StateConstants) {
 	function BootState() {
 	}
 
 	BootState.prototype.create = function() {
-		console.log("Boot");
-		this.game.changeStateSignal.dispatch("Preloader");
+		this.game.changeStateSignal.dispatch(StateConstants.PRELOADER);
 	};
 
 	return BootState;

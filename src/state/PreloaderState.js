@@ -1,10 +1,9 @@
-define(function() {
+define(["constants/StateConstants"], function(StateConstants) {
 	function PreloaderState() {
 	}
 
 	PreloaderState.prototype.create = function() {
-		console.log("Preloader");
-		this.game.changeStateSignal.dispatch("Menu");
+		this.game.changeStateSignal.dispatch(StateConstants.MENU);
 	};
 
 	return PreloaderState;

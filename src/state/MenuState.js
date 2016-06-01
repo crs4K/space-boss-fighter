@@ -1,10 +1,9 @@
-define(function() {
+define(["constants/StateConstants"], function(StateConstants) {
 	function MenuState() {
 	}
 
 	MenuState.prototype.create = function() {
-		console.log("Menu");
-		this.game.changeStateSignal.dispatch("Game");
+		this.game.changeStateSignal.dispatch(StateConstants.GAME);
 	};
 
 	return MenuState;

@@ -1,4 +1,4 @@
-define(function() {
+define(["constants/StateConstants"], function(StateConstants) {
 	function GameOverState() {
 	}
 
