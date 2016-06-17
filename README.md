@@ -31,18 +31,18 @@ This game is a **space shooter** where you can fly on your own space ship throug
 
 |Number|Part of developing|Comment|Finish date|
 |:----:|------------------|-------|:---------:|
-|1|Set up the environment|1. Create project folder and folders structure 2. Add html, css, js files 3. Connect stylesheets and scripts to html, connect Phaser|29/03/16|
-|2|Learn JSHint, add JSHint config with default settings| 1. Read about linters, as JSHint and JSLint 2. Create JSHint config|31/03/16|
+|1|Set up the environment|<ul><li>Create project folder and folders structure</li><li>Add html, css, js files</li><li>Connect stylesheets and scripts to html, connect Phaser</li></ul>|29/03/16|
+|2|Learn JSHint, add JSHint config with default settings|<ul><li>Read about linters, as JSHint and JSLint</li><li>Create JSHint config</li></ul>|31/03/16|
 |3|Set background to the game|Add some moveable background to the game|03/04/16|
-|4|Add player|1. Add player image 2. Add controls 3. Add basic characteristics as health points 4. Add collisions with edges of the screen|08/04/16|
-|5|Set up RequireJS and unit testing tools| 1. Read about RequireJS, add RequireJS to the project 2. Read about Jasmine and Karma unit testing tools 3. Add unit tests to the project|10/04/16|
+|4|Add player|<ul><li>Add player image</li><li>Add controls</li><li>Add basic characteristics as health points</li><li>Add collisions with edges of the screen</li></ul>|08/04/16|
+|5|Set up RequireJS and unit testing tools|<ul><li>Read about RequireJS, add RequireJS to the project</li><li>Read about Jasmine and Karma unit testing tools</li><li>Add unit tests to the project</li></ul>|10/04/16|
 |6|Add shooting|Add the handling of the bullets appearing and disappearing on the screen|15/04/16|
-|7|Add enemies| 1. Add appearing of enemies on the screen 2. Make them fly in some direction 3. Add collisions with enemies|30/05/16|
-|8|Create game states preview images| 1. Create preview image for Prealod state 2. Create preview image for Menu state 3. Create preview image for Game state 4. Create preview image for Options state 5. Create preview image for Game Over state|10/06/16|
-|9|Add states| 1. 	Add boot state 2. Add prealoder state 3. Add menu state 4. Add game state 5. Add options state 6. Add game over state|14/06/16|
-|10|Add enemies shooting| 1. Add enemies bullets 2. Add collisions with bullets|23/06/16|
-|11|Add panel with health, points and other info| 1. Add health bar 2. Add points meter 3. Add volume button 4. Add help button|28/06/16|
-|12|Add sound| 1. Add bg music 2. Add shooting sound 3. Add explosion sound|30/06/16|
+|7|Add enemies|<ul><li>Add appearing of enemies on the screen</li><li>Make them fly in some direction</li><li>Add collisions with enemies</li></ul>|30/05/16|
+|8|Create game states preview images|<ul><li>Create preview image for Prealod state</li><li>Create preview image for Menu state</li><li>Create preview image for Game state</li><li>Create preview image for Options state</li><li>Create preview image for Game Over state</li></ul>|10/06/16|
+|9|Add states|<ul><li>Add boot state</li><li>Add prealoder state</li><li>Add menu state</li><li>Add game state</li><li>Add options state</li><li>Add game over state</li></ul>|14/06/16|
+|10|Add enemies shooting|<ul><li>Add enemies bullets</li><li>Add collisions with bullets</li></ul>|23/06/16|
+|11|Add panel with health, points and other info|<ul><li>Add health bar</li><li>Add points meter</li><li>Add volume button</li><li>Add help button</li></ul>|28/06/16|
+|12|Add sound|<ul><li>Add bg music</li><li>Add shooting sound</li><li>Add explosion sound</li></ul>|30/06/16|
 
 
 ## Achieved skills
