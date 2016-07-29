@@ -6,7 +6,10 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link type="image/png" rel="shortcut icon" href="assets/img/favicon.png" />
 	<!-- build:requirejs -->
-	<script src="node_modules/requirejs/require.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.js"></script>
+	<script>if (typeof requirejs == 'undefined') {
+		document.write(unescape("%3Cscript src='node_modules/requirejs/require.js' type='text/javascript'%3E%3C/script%3E"));
+	}</script>
 	<!-- endbuild -->
 	<!-- build:config -->
 	<script src="src/config/config.js"></script>
