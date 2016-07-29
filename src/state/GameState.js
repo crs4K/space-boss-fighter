@@ -1,6 +1,7 @@
 define(["Phaser",
 	  "component/Background",
 	  "component/Player",
+	  "component/BulletManager",
 	  "component/EnemyGroup",
 	  "constant/BackgroundConstants",
 	  "constant/PlayerConstants",
@@ -10,6 +11,7 @@ define(["Phaser",
 		function(Phaser, 
 				Background,
 				Player,
+				BulletManager,
 				EnemyGroup,
 				BackgroundConstants,
 				PlayerConstants,
@@ -20,12 +22,14 @@ define(["Phaser",
 	function GameState() {
 		this.bg = new Background();
 		this.player = new Player();
+		this.bulletManager = new BulletManager();
 		this.enemyGroup = null;
 	}
 
 	GameState.prototype.create = function() {
 		this.bg.create(this);
 		this.player.create(this);
+		this.bulletManager.create(this);
 		this.enemyGroup = new EnemyGroup(this);
 		this.enemyGroup.initGroup(EnemyConstants.ENEMIES_QUANTITY);
 	};

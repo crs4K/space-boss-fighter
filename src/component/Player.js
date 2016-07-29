@@ -1,21 +1,17 @@
-define(["constant/PlayerConstants",
-			  "constant/BulletConstants",
-			  "component/BulletGroup"],
-				function(PlayerConstants,
-								 BulletConstants,
-								 BulletGroup){
+define(["signal/SignalManager",
+				"constant/PlayerConstants",
+			  "constant/BulletConstants"],
+				function(SignalManager,
+								 PlayerConstants,
+								 BulletConstants){
 					
 	function Player() {
 		this._view = null;
 		this._keys = null;
-		this._bulletGroup = null;
 	}
 
 	Player.prototype.create = function(game) {
 		this._view = game.add.sprite(PlayerConstants.X, PlayerConstants.Y, PlayerConstants.ID);
-
-		this._bulletGroup = new BulletGroup(game);
-		this._bulletGroup.initGroup(BulletConstants.BULLETS_QUANTITY);
 
 		this._createKeys(game);
 		
@@ -60,7 +56,7 @@ define(["constant/PlayerConstants",
 	};
 
 	Player.prototype._shoot = function() {
-		this._bulletGroup.resetBullet(this._view.x + this._view.width, this._view.y);
+		SignalManager.playerShot.dispatch(this._view.x + this._view.width, this._view.y);
 	};
 
 	return Player;
