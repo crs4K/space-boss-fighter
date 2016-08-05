@@ -17,6 +17,7 @@ require.config({
     component: "component",
     constant: "constant",
     controller: "controller",
+    signal: "signal",
     state: "state",
 
     //mocked components

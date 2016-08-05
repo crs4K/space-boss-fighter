@@ -17,10 +17,7 @@ define(["signal/SignalManager",
 		
 		game.physics.enable(this._view, Phaser.Physics.ARCADE);
 		this._initView();
-	};
-
-	Player.prototype.update = function() {
-		this._move();
+		this._addListeners();
 	};
 
 	Player.prototype._createKeys = function(game) {
@@ -36,6 +33,18 @@ define(["signal/SignalManager",
 		this._view.health = PlayerConstants.MAX_HEALTH;
 		this._view.maxHealth = PlayerConstants.MAX_HEALTH;
 		this._view.anchor.setTo(0.5, 0.5);
+	};
+
+	Player.prototype._addListeners = function() {
+		SignalManager.playerCollided.add(this._hitPlayer, this);
+	};
+
+	Player.prototype._hitPlayer = function() {
+		this._view.damage(1);
+	};
+
+	Player.prototype.update = function() {
+		this._move();
 	};
 
 	Player.prototype._move = function() {
@@ -57,6 +66,10 @@ define(["signal/SignalManager",
 
 	Player.prototype._shoot = function() {
 		SignalManager.playerShot.dispatch(this._view.x + this._view.width, this._view.y);
+	};
+
+	Player.prototype.getSpriteToCheckCollisions = function() {
+		return this._view;
 	};
 
 	return Player;

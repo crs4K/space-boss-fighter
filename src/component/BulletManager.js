@@ -20,12 +20,9 @@ define(["Phaser",
 		this._addListeners();
 	};
 
-	BulletManager.prototype.update = function() {
-
-	};
-
 	BulletManager.prototype._addListeners = function() {
 		SignalManager.playerShot.add(this._resetBullet, this);
+		SignalManager.bulletCollided.add(this._removeBullet, this);
 	}
 	
 	BulletManager.prototype._resetBullet = function(x, y) {
@@ -34,6 +31,14 @@ define(["Phaser",
 			bullet.reset(x, y);
 			bullet.body.velocity.x = BulletConstants.SPEED;
 		}
+	};
+
+	BulletManager.prototype._removeBullet = function(bullet) {
+		bullet.kill();
+	};
+
+	BulletManager.prototype.getGroupToCheckCollisions = function() {
+		return this._bulletGroup;
 	};
 
 	return BulletManager;
