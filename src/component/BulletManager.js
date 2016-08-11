@@ -5,7 +5,7 @@ define(["Phaser",
 								 SignalManager,
 								 BulletConstants) {
 	function BulletManager() {
-		this._bulletGroup;
+		this._bulletGroup = null;
 	}
 
 	BulletManager.prototype.create = function(game) {
@@ -23,7 +23,7 @@ define(["Phaser",
 	BulletManager.prototype._addListeners = function() {
 		SignalManager.playerShot.add(this._resetBullet, this);
 		SignalManager.bulletCollided.add(this._removeBullet, this);
-	}
+	};
 	
 	BulletManager.prototype._resetBullet = function(x, y) {
 		var bullet = this._bulletGroup.getFirstExists(false);

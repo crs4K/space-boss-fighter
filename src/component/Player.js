@@ -1,9 +1,7 @@
 define(["signal/SignalManager",
-				"constant/PlayerConstants",
-			  "constant/BulletConstants"],
+				"constant/PlayerConstants"],
 				function(SignalManager,
-								 PlayerConstants,
-								 BulletConstants){
+								 PlayerConstants){
 					
 	function Player() {
 		this._view = null;

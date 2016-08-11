@@ -29,7 +29,7 @@ define(["Phaser",
 		this.enemyManager = new EnemyManager();
 		this.bulletManager = new BulletManager();
 		this.explosionManager = new ExplosionManager();
-		this.checkCollisionsController;
+		this.checkCollisionsController = null;
 	}
 
 	GameState.prototype.create = function() {

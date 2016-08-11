@@ -5,7 +5,7 @@ define(["Phaser",
 				EnemyConstants,
 				SignalManager) {
 	function EnemyManager() {
-		this._enemyGroup;
+		this._enemyGroup = null;
 	}
 
 	EnemyManager.prototype.create = function(game) {
