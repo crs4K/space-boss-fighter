@@ -3,6 +3,7 @@ define(["Phaser",
 	  "component/Player",
 	  "component/BulletManager",
 	  "component/EnemyManager",
+	  "component/ExplosionManager",
 	  "constant/BackgroundConstants",
 	  "constant/PlayerConstants",
 	  "constant/EnemyConstants",
@@ -14,6 +15,7 @@ define(["Phaser",
 				Player,
 				BulletManager,
 				EnemyManager,
+				ExplosionManager,
 				BackgroundConstants,
 				PlayerConstants,
 				EnemyConstants,
@@ -26,6 +28,7 @@ define(["Phaser",
 		this.player = new Player();
 		this.enemyManager = new EnemyManager();
 		this.bulletManager = new BulletManager();
+		this.explosionManager = new ExplosionManager();
 		this.checkCollisionsController;
 	}
 
@@ -34,6 +37,7 @@ define(["Phaser",
 		this.player.create(this);
 		this.enemyManager.create(this);
 		this.bulletManager.create(this);
+		this.explosionManager.create(this);
 		this.checkCollisionsController = new CheckCollisionsController(this._getComponentsViews());
 	};
 
@@ -48,7 +52,7 @@ define(["Phaser",
 	GameState.prototype.update = function() {
 		this.bg.update();
 		this.player.update();
-		this.enemyManager.resetEnemy(this);
+		this.enemyManager.resetEnemy();
 		this.checkCollisionsController.checkCollisions(this);
 	};
 

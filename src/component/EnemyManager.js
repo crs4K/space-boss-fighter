@@ -25,13 +25,13 @@ define(["Phaser",
 	};
 
 	EnemyManager.prototype._explodeEnemy = function(enemy) {
-		enemy.kill();
+		SignalManager.explode.dispatch(enemy);
 	};
 	
-	EnemyManager.prototype.resetEnemy = function(game) {
+	EnemyManager.prototype.resetEnemy = function() {
 		var enemy = this._enemyGroup.getFirstExists(false);
 		if(enemy) {
-			enemy.reset(game.world.width + game.world.randomX, game.rnd.integerInRange(enemy.height/2, game.world.height - enemy.height/2));
+			enemy.reset(enemy.game.world.width + enemy.game.world.randomX, enemy.game.rnd.integerInRange(enemy.height/2, enemy.game.world.height - enemy.height/2));
 			enemy.body.velocity.x = -EnemyConstants.SPEED;
 		}
 	};

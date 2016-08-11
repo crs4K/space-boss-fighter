@@ -40,7 +40,11 @@ define(["signal/SignalManager",
 	};
 
 	Player.prototype._hitPlayer = function() {
-		this._view.damage(1);
+		if(this._view.health > 1) {
+			this._view.damage(1);
+		} else {
+			SignalManager.explode.dispatch(this._view);
+		}
 	};
 
 	Player.prototype.update = function() {
