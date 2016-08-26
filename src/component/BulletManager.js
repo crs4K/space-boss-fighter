@@ -32,7 +32,7 @@ define(["Phaser",
 	};
 	
 	BulletManager.prototype._resetEnemyBullet = function(x, y) {
-		this._resetBullet(BulletConstants.ENEMY_BULLET_ID, x - 24, y);
+		this._resetBullet(BulletConstants.ENEMY_BULLET_ID, x - BulletConstants.ENEMY_BULLET_WIDTH, y);
 	};
 
 	BulletManager.prototype._resetBullet = function(side, x, y) {
