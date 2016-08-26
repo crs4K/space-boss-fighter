@@ -6,6 +6,9 @@ define(["Phaser"], function(Phaser) {
 
 		playerCollided: new Phaser.Signal(),
 		enemyCollided: new Phaser.Signal(),
-		bulletCollided: new Phaser.Signal()
+		bulletCollided: new Phaser.Signal(),
+
+		updateHealth: new Phaser.Signal(),
+		updatePoints: new Phaser.Signal()
 	};
 });

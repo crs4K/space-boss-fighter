@@ -4,6 +4,7 @@ define(["Phaser",
 	  "component/BulletManager",
 	  "component/EnemyManager",
 	  "component/ExplosionManager",
+	  "component/Panel",
 	  "constant/BackgroundConstants",
 	  "constant/PlayerConstants",
 	  "constant/EnemyConstants",
@@ -16,6 +17,7 @@ define(["Phaser",
 				BulletManager,
 				EnemyManager,
 				ExplosionManager,
+				Panel,
 				BackgroundConstants,
 				PlayerConstants,
 				EnemyConstants,
@@ -29,6 +31,7 @@ define(["Phaser",
 		this.enemyManager = new EnemyManager();
 		this.bulletManager = new BulletManager();
 		this.explosionManager = new ExplosionManager();
+		this.panel = new Panel();
 		this.checkCollisionsController = null;
 	}
 
@@ -38,6 +41,7 @@ define(["Phaser",
 		this.enemyManager.create(this);
 		this.bulletManager.create(this);
 		this.explosionManager.create(this);
+		this.panel.create(this);
 		this.checkCollisionsController = new CheckCollisionsController(this._getComponentsViews());
 	};
 

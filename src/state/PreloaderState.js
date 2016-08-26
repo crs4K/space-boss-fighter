@@ -3,13 +3,15 @@ define(["constant/StateConstants",
 		"constant/PlayerConstants",
 		"constant/EnemyConstants",
 		"constant/BulletConstants",
-		"constant/ExplosionConstants"],
+		"constant/ExplosionConstants",
+		"constant/PanelConstants"],
 		function(StateConstants,
 				BackgroundConstants,
 				PlayerConstants,
 				EnemyConstants,
 				BulletConstants,
-				ExplosionConstants) {
+				ExplosionConstants,
+				PanelConstants) {
 	
 	function PreloaderState() {
 	}
@@ -21,6 +23,8 @@ define(["constant/StateConstants",
 		this.load.image(BulletConstants.PLAYER_BULLET_ID, BulletConstants.PLAYER_BULLET_PATH);
 		this.load.image(BulletConstants.ENEMY_BULLET_ID, BulletConstants.ENEMY_BULLET_PATH);
 		this.load.spritesheet(ExplosionConstants.ID, ExplosionConstants.PATH, ExplosionConstants.FRAME_WIDTH, ExplosionConstants.FRAME_HEIGHT);
+		this.load.image(PanelConstants.LIFE_ID, PanelConstants.LIFE_PATH);
+		this.load.image(PanelConstants.CROSS_ID, PanelConstants.CROSS_PATH);
 	};
 
 	PreloaderState.prototype.create = function() {

@@ -26,6 +26,7 @@ define(["Phaser",
 
 	EnemyManager.prototype._explodeEnemy = function(enemy) {
 		SignalManager.explode.dispatch(enemy.x, enemy.y);
+		SignalManager.updatePoints.dispatch();
 		enemy.kill();
 	};
 	

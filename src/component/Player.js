@@ -40,8 +40,10 @@ define(["signal/SignalManager",
 	Player.prototype._hitPlayer = function(damage) {
 		if(this._view.health > damage) {
 			this._view.damage(damage);
+			SignalManager.updateHealth.dispatch(this._view.health);
 		} else {
 			SignalManager.explode.dispatch(this._view.x, this._view.y);
+			SignalManager.updateHealth.dispatch(0);
 			this._view.kill();
 		}
 	};
