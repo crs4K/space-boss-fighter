@@ -52,7 +52,7 @@ define(["Phaser",
 	GameState.prototype.update = function() {
 		this.bg.update();
 		this.player.update();
-		this.enemyManager.resetEnemy();
+		this.enemyManager.update();
 		this.checkCollisionsController.checkCollisions(this);
 	};
 

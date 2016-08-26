@@ -19,13 +19,12 @@ define(["constant/ExplosionConstants",
 		SignalManager.explode.add(this._resetExplosion, this);
 	};
 
-	ExplosionManager.prototype._resetExplosion = function(obj) {
+	ExplosionManager.prototype._resetExplosion = function(x, y) {
 		var explosion = this._explosionGroup.getFirstExists(false);
 		if(explosion) {
 			explosion.animations.add(ExplosionConstants.EXPLOSION_ANIMATION);
-			explosion.reset(obj.x, obj.y);
+			explosion.reset(x, y);
 			explosion.animations.play(ExplosionConstants.EXPLOSION_ANIMATION, null, false, true);
-			obj.kill();
 		}
 	};
 

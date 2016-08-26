@@ -2,7 +2,7 @@ define(["component/Player", "base/Sprite", "base/Keyboard"], function(Player, Sp
 	function PlayerMock() {
 		Player.call(this);
 		this._view = new Sprite();
-		this._keys = new Keyboard();
+		this._controls = new Keyboard();
 	}
 	PlayerMock.prototype = Object.create(Player.prototype);
 	PlayerMock.prototype.constructor = PlayerMock;
@@ -17,9 +17,9 @@ define(["component/Player", "base/Sprite", "base/Keyboard"], function(Player, Sp
 		}
 	});
 
-	Object.defineProperty(PlayerMock.prototype, "keys", {
+	Object.defineProperty(PlayerMock.prototype, "controls", {
 		get: function() {
-			return this._keys;
+			return this._controls;
 		}
 	});
 

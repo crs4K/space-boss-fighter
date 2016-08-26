@@ -1,4 +1,4 @@
-define(["signal/SignalManager"], function(SignalManager) {
+define(["signal/SignalManager", "constant/EnemyConstants"], function(SignalManager, EnemyConstants) {
 	function CheckCollisionsController(components) {
 		this.player = components.player;
 		this.enemies = components.enemies;
@@ -11,7 +11,7 @@ define(["signal/SignalManager"], function(SignalManager) {
 	};
 
 	function _playerWithEnemyCollided(player, enemy) {
-		SignalManager.playerCollided.dispatch();
+		SignalManager.playerCollided.dispatch(EnemyConstants.DAMAGE);
 		SignalManager.enemyCollided.dispatch(enemy);
 	}
 

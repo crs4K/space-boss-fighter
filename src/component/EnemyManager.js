@@ -19,21 +19,22 @@ define(["Phaser",
 		this._enemyGroup.setAll("checkWorldBounds", true);
 		this._addListeners();
 	};
+	
+	EnemyManager.prototype.update = function() {
+		var enemy = this._enemyGroup.getFirstExists(false);
+		if(enemy) {
+			enemy.reset(enemy.game.world.width + enemy.game.world.randomX, enemy.game.rnd.integerInRange(enemy.height/2, enemy.game.world.height - enemy.height/2));
+			enemy.body.velocity.x = -EnemyConstants.SPEED;
+		}
+	};
 
 	EnemyManager.prototype._addListeners = function() {
 		SignalManager.enemyCollided.add(this._explodeEnemy, this);
 	};
 
 	EnemyManager.prototype._explodeEnemy = function(enemy) {
-		SignalManager.explode.dispatch(enemy);
-	};
-	
-	EnemyManager.prototype.resetEnemy = function() {
-		var enemy = this._enemyGroup.getFirstExists(false);
-		if(enemy) {
-			enemy.reset(enemy.game.world.width + enemy.game.world.randomX, enemy.game.rnd.integerInRange(enemy.height/2, enemy.game.world.height - enemy.height/2));
-			enemy.body.velocity.x = -EnemyConstants.SPEED;
-		}
+		SignalManager.explode.dispatch(enemy.x, enemy.y);
+		enemy.kill();
 	};
 
 	EnemyManager.prototype.getGroupToCheckCollisions = function() {
