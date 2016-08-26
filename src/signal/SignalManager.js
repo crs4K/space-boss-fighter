@@ -1,6 +1,7 @@
 define(["Phaser"], function(Phaser) {
 	return {
 		playerShot: new Phaser.Signal(),
+		enemyShot: new Phaser.Signal(),
 		explode: new Phaser.Signal(),
 
 		playerCollided: new Phaser.Signal(),

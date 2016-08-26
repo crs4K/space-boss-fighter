@@ -1,8 +1,13 @@
 define(function() {
 	return {
-		ID: "bulletBlue",
-		PATH: "assets/img/bulletBlue.png",
-		SPEED: 500,
-		BULLETS_QUANTITY: 20
+		PLAYER_BULLET_ID: "playerBullet",
+		PLAYER_BULLET_PATH: "assets/img/playerBullet.png",
+		PLAYER_BULLET_AMOUNT: 20,
+
+		ENEMY_BULLET_ID: "enemyBullet",
+		ENEMY_BULLET_PATH: "assets/img/enemyBullet.png",
+		ENEMY_BULLET_AMOUNT: 20,
+		
+		BULLET_SPEED: 500
 	};
 });

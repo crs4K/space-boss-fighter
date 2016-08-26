@@ -19,14 +19,6 @@ define(["Phaser",
 		this._enemyGroup.setAll("checkWorldBounds", true);
 		this._addListeners();
 	};
-	
-	EnemyManager.prototype.update = function() {
-		var enemy = this._enemyGroup.getFirstExists(false);
-		if(enemy) {
-			enemy.reset(enemy.game.world.width + enemy.game.world.randomX, enemy.game.rnd.integerInRange(enemy.height/2, enemy.game.world.height - enemy.height/2));
-			enemy.body.velocity.x = -EnemyConstants.SPEED;
-		}
-	};
 
 	EnemyManager.prototype._addListeners = function() {
 		SignalManager.enemyCollided.add(this._explodeEnemy, this);
@@ -35,6 +27,23 @@ define(["Phaser",
 	EnemyManager.prototype._explodeEnemy = function(enemy) {
 		SignalManager.explode.dispatch(enemy.x, enemy.y);
 		enemy.kill();
+	};
+	
+	EnemyManager.prototype.update = function() {
+		var enemy = this._enemyGroup.getFirstExists(false);
+		if(enemy) {
+			enemy.reset(enemy.game.world.width + enemy.game.world.randomX, enemy.game.rnd.integerInRange(enemy.height/2, enemy.game.world.height - enemy.height/2));
+			enemy.body.velocity.x = -EnemyConstants.SPEED;
+		}
+		this._shoot();
+	};
+
+	EnemyManager.prototype._shoot = function() {
+		this._enemyGroup.forEach(function(enemy) {
+			if(enemy.alive && enemy.inWorld && Math.random() < 0.01) {
+				SignalManager.enemyShot.dispatch(enemy.x - enemy.width/2, enemy.y);
+			}
+		});
 	};
 
 	EnemyManager.prototype.getGroupToCheckCollisions = function() {

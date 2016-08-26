@@ -68,7 +68,9 @@ define(["signal/SignalManager",
 	};
 
 	Player.prototype._shoot = function() {
-		SignalManager.playerShot.dispatch(this._view.x + this._view.width, this._view.y);
+		if(this._view.alive) {
+			SignalManager.playerShot.dispatch(this._view.x + this._view.width, this._view.y);
+		}
 	};
 
 	Player.prototype.getSpriteToCheckCollisions = function() {

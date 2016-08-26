@@ -12,7 +12,8 @@ define(["Phaser",
 		this._bulletGroup = game.add.group();
 		this._bulletGroup.enableBody = true;
 		this._bulletGroup.physicsBodyType = Phaser.Physics.ARCADE;
-		this._bulletGroup.createMultiple(BulletConstants.BULLETS_QUANTITY, BulletConstants.ID);
+		this._bulletGroup.createMultiple(BulletConstants.PLAYER_BULLET_AMOUNT, BulletConstants.PLAYER_BULLET_ID);
+		this._bulletGroup.createMultiple(BulletConstants.ENEMY_BULLET_AMOUNT, BulletConstants.ENEMY_BULLET_ID);
 		this._bulletGroup.setAll("anchor.x", 0.5);
 		this._bulletGroup.setAll("anchor.y", 0.5);
 		this._bulletGroup.setAll("outOfBoundsKill", true);
@@ -21,15 +22,25 @@ define(["Phaser",
 	};
 
 	BulletManager.prototype._addListeners = function() {
-		SignalManager.playerShot.add(this._resetBullet, this);
+		SignalManager.playerShot.add(this._resetPlayerBullet, this);
+		SignalManager.enemyShot.add(this._resetEnemyBullet, this);
 		SignalManager.bulletCollided.add(this._removeBullet, this);
 	};
 	
-	BulletManager.prototype._resetBullet = function(x, y) {
-		var bullet = this._bulletGroup.getFirstExists(false);
+	BulletManager.prototype._resetPlayerBullet = function(x, y) {
+		this._resetBullet(BulletConstants.PLAYER_BULLET_ID, x, y);
+	};
+	
+	BulletManager.prototype._resetEnemyBullet = function(x, y) {
+		this._resetBullet(BulletConstants.ENEMY_BULLET_ID, x - 24, y);
+	};
+
+	BulletManager.prototype._resetBullet = function(side, x, y) {
+		var bullet = this._bulletGroup.getFirstExists(false, false, x, y, side);
 		if(bullet) {
-			bullet.reset(x, y);
-			bullet.body.velocity.x = BulletConstants.SPEED;
+			bullet.body.velocity.x = (side == BulletConstants.PLAYER_BULLET_ID)
+					? BulletConstants.BULLET_SPEED
+					: -BulletConstants.BULLET_SPEED;
 		}
 	};
 

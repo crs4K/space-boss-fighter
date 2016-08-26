@@ -53,7 +53,7 @@ define(["Phaser",
 		this.bg.update();
 		this.player.update();
 		this.enemyManager.update();
-		this.checkCollisionsController.checkCollisions(this);
+		this.checkCollisionsController.execute(this);
 	};
 
 	return GameState;

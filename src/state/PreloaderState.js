@@ -18,7 +18,8 @@ define(["constant/StateConstants",
 		this.load.image(BackgroundConstants.ID, BackgroundConstants.PATH);
 		this.load.image(PlayerConstants.ID, PlayerConstants.PATH);
 		this.load.image(EnemyConstants.ID, EnemyConstants.PATH);
-		this.load.image(BulletConstants.ID, BulletConstants.PATH);
+		this.load.image(BulletConstants.PLAYER_BULLET_ID, BulletConstants.PLAYER_BULLET_PATH);
+		this.load.image(BulletConstants.ENEMY_BULLET_ID, BulletConstants.ENEMY_BULLET_PATH);
 		this.load.spritesheet(ExplosionConstants.ID, ExplosionConstants.PATH, ExplosionConstants.FRAME_WIDTH, ExplosionConstants.FRAME_HEIGHT);
 	};
 
