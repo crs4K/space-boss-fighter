@@ -10,6 +10,8 @@ define(["Phaser",
 	  "constant/EnemyConstants",
 	  "constant/BulletConstants",
 	  "constant/StateConstants",
+	  "constant/SoundConstants",
+	  "signal/SignalManager",
 	  "controller/CheckCollisionsController"],
 		function(Phaser, 
 				Background,
@@ -23,6 +25,8 @@ define(["Phaser",
 				EnemyConstants,
 				BulletConstants,
 				StateConstants,
+				SoundConstants,
+				SignalManager,
 				CheckCollisionsController) {
 
 	function GameState() {
@@ -43,6 +47,7 @@ define(["Phaser",
 		this.explosionManager.create(this);
 		this.panel.create(this);
 		this.checkCollisionsController = new CheckCollisionsController(this._getComponentsViews());
+		SignalManager.playSound.dispatch(SoundConstants.BACKGROUND_MUSIC_ID, true);
 	};
 
 	GameState.prototype._getComponentsViews = function() {

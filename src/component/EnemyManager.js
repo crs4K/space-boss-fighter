@@ -1,8 +1,10 @@
 define(["Phaser",
 		"constant/EnemyConstants",
+		"constant/SoundConstants",
 		"signal/SignalManager"],
 		function(Phaser,
 				EnemyConstants,
+				SoundConstants,
 				SignalManager) {
 	function EnemyManager() {
 		this._enemyGroup = null;
@@ -27,6 +29,7 @@ define(["Phaser",
 	EnemyManager.prototype._explodeEnemy = function(enemy) {
 		SignalManager.explode.dispatch(enemy.x, enemy.y);
 		SignalManager.updatePoints.dispatch();
+		SignalManager.playSound.dispatch(SoundConstants.EXPLOSION_ID);
 		enemy.kill();
 	};
 	

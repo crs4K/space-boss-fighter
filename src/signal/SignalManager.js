@@ -9,6 +9,9 @@ define(["Phaser"], function(Phaser) {
 		bulletCollided: new Phaser.Signal(),
 
 		updateHealth: new Phaser.Signal(),
-		updatePoints: new Phaser.Signal()
+		updatePoints: new Phaser.Signal(),
+
+		playSound: new Phaser.Signal(),
+		stopSound: new Phaser.Signal()
 	};
 });

@@ -1,7 +1,9 @@
 define(["signal/SignalManager",
-				"constant/PlayerConstants"],
+				"constant/PlayerConstants",
+				"constant/SoundConstants"],
 				function(SignalManager,
-								 PlayerConstants){
+								 PlayerConstants,
+								 SoundConstants){
 					
 	function Player() {
 		this._view = null;
@@ -41,9 +43,11 @@ define(["signal/SignalManager",
 		if(this._view.health > damage) {
 			this._view.damage(damage);
 			SignalManager.updateHealth.dispatch(this._view.health);
+			SignalManager.playSound.dispatch(SoundConstants.HIT_ID);
 		} else {
 			SignalManager.explode.dispatch(this._view.x, this._view.y);
 			SignalManager.updateHealth.dispatch(0);
+			SignalManager.playSound.dispatch(SoundConstants.EXPLOSION_ID);
 			this._view.kill();
 		}
 	};
@@ -72,6 +76,7 @@ define(["signal/SignalManager",
 	Player.prototype._shoot = function() {
 		if(this._view.alive) {
 			SignalManager.playerShot.dispatch(this._view.x + this._view.width, this._view.y);
+			SignalManager.playSound.dispatch(SoundConstants.SHOT_ID);
 		}
 	};
 
