@@ -38,8 +38,8 @@ define(["signal/SignalManager", "constant/SoundConstants"], function(SignalManag
 	};
 
 	SoundManager.prototype._getSoundById = function(soundID) {
-		for(sound in this._sounds) {
-			if(this._sounds[sound].key == soundID) {
+		for(var sound in this._sounds) {
+			if(this._sounds[sound].key === soundID) {
 				return this._sounds[sound];
 			}
 		}

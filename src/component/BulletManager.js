@@ -38,7 +38,7 @@ define(["Phaser",
 	BulletManager.prototype._resetBullet = function(side, x, y) {
 		var bullet = this._bulletGroup.getFirstExists(false, false, x, y, side);
 		if(bullet) {
-			bullet.body.velocity.x = (side == BulletConstants.PLAYER_BULLET_ID)
+			bullet.body.velocity.x = (side === BulletConstants.PLAYER_BULLET_ID)
 					? BulletConstants.BULLET_SPEED
 					: -BulletConstants.BULLET_SPEED;
 		}
