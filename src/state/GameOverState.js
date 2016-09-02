@@ -1,9 +1,13 @@
 define(["constant/StateConstants",
 		"constant/MenuConstants",
-		"component/Background"],
+		"constant/SoundConstants",
+		"component/Background",
+		"signal/SignalManager"],
 		function(StateConstants,
 				MenuConstants,
-				Background) {
+				SoundConstants,
+				Background,
+				SignalManager) {
 	function GameOverState() {
 		this.bg = new Background();
 	}
@@ -18,9 +22,12 @@ define(["constant/StateConstants",
 		text.anchor.setTo(0.5, 0);
 
 		this.input.onDown.add(this._goToMenu, this);
+		SignalManager.playSound.dispatch(SoundConstants.LOSE_ID);
 	};
 
 	GameOverState.prototype._goToMenu = function() {
+		SignalManager.playSound.dispatch(SoundConstants.CLICK_ID);
+		SignalManager.stopSound.dispatch(SoundConstants.LOSE_ID);
 		this.game.changeStateSignal.dispatch(StateConstants.MENU);	
 	};
 

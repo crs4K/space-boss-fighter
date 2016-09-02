@@ -28,6 +28,7 @@ define(["constant/StateConstants",
 
 	MenuState.prototype._onStartGame = function() {
 		SignalManager.stopSound.dispatch(SoundConstants.MENU_MUSIC_ID, true);
+		SignalManager.playSound.dispatch(SoundConstants.CLICK_ID);
 		this.game.changeStateSignal.dispatch(StateConstants.GAME);
 	};
 
