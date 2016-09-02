@@ -7,7 +7,7 @@ var gulp = require("gulp"),
 
 gulp.task("default", ["build"]);
 
-gulp.task("build", ["jshint", "css", "img", "lib", "html", "js"]);
+gulp.task("build", ["jshint", "css", "img", "sfx", "lib", "html", "js"]);
 
 gulp.task("jshint", function() {
 	gulp.src("src/**/*.js")
@@ -23,6 +23,11 @@ gulp.task("css", function() {
 gulp.task("img", function() {
 	gulp.src("assets/img/**")
 			.pipe(gulp.dest("build/assets/img"));
+});
+
+gulp.task("sfx", function() {
+	gulp.src("assets/sfx/**")
+			.pipe(gulp.dest("build/assets/sfx"));
 });
 
 gulp.task("lib", function() {
