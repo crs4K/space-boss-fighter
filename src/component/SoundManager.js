@@ -21,8 +21,7 @@ define(["signal/SignalManager", "constant/SoundConstants"], function(SignalManag
 
 	SoundManager.prototype._play = function(soundID, loop) {
 		var sound = this._getSoundById(soundID);
-		console.log(sound);
-			console.log(sound.isDecoded);
+		
 		if(sound.isDecoded) {
 			if(sound.isPlaying) {
 				sound.stop();

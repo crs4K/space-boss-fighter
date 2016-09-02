@@ -5,6 +5,9 @@ define(function() {
 		MENU: "Menu",
 		OPTIONS: "Options",
 		GAME: "Game",
-		GAME_OVER: "GameOver"
+		GAME_OVER: "GameOver",
+
+		PRELOADER_TEXT: "LOADING...",
+		PRELOADER_TEXT_COLOR: "#FFFFFF"
 	};
 });
