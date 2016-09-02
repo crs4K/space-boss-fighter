@@ -6,6 +6,7 @@ define(["constant/StateConstants",
 		"constant/ExplosionConstants",
 		"constant/PanelConstants",
 		"constant/SoundConstants",
+		"constant/MenuConstants",
 		"component/SoundManager"],
 		function(StateConstants,
 				BackgroundConstants,
@@ -15,6 +16,7 @@ define(["constant/StateConstants",
 				ExplosionConstants,
 				PanelConstants,
 				SoundConstants,
+				MenuConstants,
 				SoundManager) {
 	
 	function PreloaderState() {
@@ -28,8 +30,14 @@ define(["constant/StateConstants",
 		this.load.image(BulletConstants.PLAYER_BULLET_ID, BulletConstants.PLAYER_BULLET_PATH);
 		this.load.image(BulletConstants.ENEMY_BULLET_ID, BulletConstants.ENEMY_BULLET_PATH);
 		this.load.spritesheet(ExplosionConstants.ID, ExplosionConstants.PATH, ExplosionConstants.FRAME_WIDTH, ExplosionConstants.FRAME_HEIGHT);
+
 		this.load.image(PanelConstants.LIFE_ID, PanelConstants.LIFE_PATH);
 		this.load.image(PanelConstants.CROSS_ID, PanelConstants.CROSS_PATH);
+
+		this.load.image(MenuConstants.LOGO_ID, MenuConstants.LOGO_PATH);
+		this.load.image(MenuConstants.START_BUTTON_ID, MenuConstants.START_BUTTON_PATH);
+		this.load.image(MenuConstants.SETTINGS_BUTTON_ID, MenuConstants.SETTINGS_BUTTON_PATH);
+		this.load.image(MenuConstants.GAME_OVER_ID, MenuConstants.GAME_OVER_PATH);
 
 		this.load.audio(SoundConstants.BACKGROUND_MUSIC_ID, SoundConstants.BACKGROUND_MUSIC_PATH);
 		this.load.audio(SoundConstants.MENU_MUSIC_ID, SoundConstants.MENU_MUSIC_PATH);
