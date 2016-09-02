@@ -23,11 +23,20 @@ define(["constant/StateConstants",
 		this._soundManager = new SoundManager();
 	}
 
+	PreloaderState.prototype.init = function() {
+		var spaceShip = this.add.sprite(this.world.centerX, this.world.centerY, PlayerConstants.ID);
+		var bullet = this.add.sprite(spaceShip.x + spaceShip.width/2, spaceShip.y, BulletConstants.PLAYER_BULLET_ID);
+		var loadingText = this.add.text(spaceShip.x, spaceShip.y + spaceShip.height, StateConstants.PRELOADER_TEXT,
+				{ fill: StateConstants.PRELOADER_TEXT_COLOR });
+
+		spaceShip.anchor.setTo(1, 0.5);
+		bullet.anchor.setTo(0.5, 0.5);
+		loadingText.anchor.setTo(0.5, 0.5);
+	};
+
 	PreloaderState.prototype.preload = function() {
 		this.load.image(BackgroundConstants.ID, BackgroundConstants.PATH);
-		this.load.image(PlayerConstants.ID, PlayerConstants.PATH);
 		this.load.image(EnemyConstants.ID, EnemyConstants.PATH);
-		this.load.image(BulletConstants.PLAYER_BULLET_ID, BulletConstants.PLAYER_BULLET_PATH);
 		this.load.image(BulletConstants.ENEMY_BULLET_ID, BulletConstants.ENEMY_BULLET_PATH);
 		this.load.spritesheet(ExplosionConstants.ID, ExplosionConstants.PATH, ExplosionConstants.FRAME_WIDTH, ExplosionConstants.FRAME_HEIGHT);
 
@@ -49,7 +58,6 @@ define(["constant/StateConstants",
 	};
 
 	PreloaderState.prototype.create = function() {
-		this._showPreloaderScreen();
 		this._soundManager.create(this);
 		this.sound.setDecodedCallback([SoundConstants.BACKGROUND_MUSIC_ID,
 				SoundConstants.MENU_MUSIC_ID,
@@ -58,17 +66,6 @@ define(["constant/StateConstants",
 				SoundConstants.EXPLOSION_ID,
 				SoundConstants.LOSE_ID,
 				SoundConstants.CLICK_ID], this._changeState, this);
-	};
-
-	PreloaderState.prototype._showPreloaderScreen = function() {
-		var spaceShip = this.add.sprite(this.world.centerX, this.world.centerY, PlayerConstants.ID);
-		var bullet = this.add.sprite(spaceShip.x + spaceShip.width/2, spaceShip.y, BulletConstants.PLAYER_BULLET_ID);
-		var loadingText = this.add.text(spaceShip.x, spaceShip.y + spaceShip.height, StateConstants.PRELOADER_TEXT,
-				{ fill: StateConstants.PRELOADER_TEXT_COLOR });
-
-		spaceShip.anchor.setTo(1, 0.5);
-		bullet.anchor.setTo(0.5, 0.5);
-		loadingText.anchor.setTo(0.5, 0.5);
 	};
 
 	PreloaderState.prototype._changeState = function() {
