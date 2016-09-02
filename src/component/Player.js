@@ -48,6 +48,7 @@ define(["signal/SignalManager",
 			SignalManager.explode.dispatch(this._view.x, this._view.y);
 			SignalManager.updateHealth.dispatch(0);
 			SignalManager.playSound.dispatch(SoundConstants.EXPLOSION_ID);
+			SignalManager.playerDied.dispatch();
 			this._view.kill();
 		}
 	};

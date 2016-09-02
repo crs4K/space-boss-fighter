@@ -48,6 +48,7 @@ define(["Phaser",
 		this.panel.create(this);
 		this.checkCollisionsController = new CheckCollisionsController(this._getComponentsViews());
 		SignalManager.playSound.dispatch(SoundConstants.BACKGROUND_MUSIC_ID, true);
+		SignalManager.playerDied.add(this._onGameOver, this);
 	};
 
 	GameState.prototype._getComponentsViews = function() {
@@ -63,6 +64,11 @@ define(["Phaser",
 		this.player.update();
 		this.enemyManager.update();
 		this.checkCollisionsController.execute(this);
+	};
+
+	GameState.prototype._onGameOver = function() {
+		SignalManager.stopSound.dispatch(SoundConstants.BACKGROUND_MUSIC_ID, true);
+		this.game.changeStateSignal.dispatch(StateConstants.GAME_OVER);	
 	};
 
 	return GameState;
